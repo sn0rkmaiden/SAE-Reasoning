@@ -1,0 +1,71 @@
+# Model Configuration
+model_name: google/gemma-2b-it
+model_from_pretrained_kwargs:
+  center_writing_weights: false
+  dtype: bfloat16
+
+# Dataset Configuration
+dataset_path: snork-maiden/gemma-2b-it-ambik-tokenized
+is_dataset_tokenized: true  # deprecated
+prepend_bos: false
+streaming: false
+
+# Speed ?
+# autocast: true
+# autocast_lm: true
+# compile_llm: true
+# compile_sae: true
+# act_store_device: cpu
+
+# SAE Configuration
+architecture: standard # standard, gated, jumprelu, topk
+hook_name: blocks.8.hook_resid_post
+hook_layer: 8
+d_in: 2048
+expansion_factor: 16
+mse_loss_normalization: null
+b_dec_init_method: zeros
+apply_b_dec_to_input: false
+normalize_sae_decoder: false
+scale_sparsity_penalty_by_decoder_norm: true
+decoder_heuristic_init: true
+init_encoder_as_decoder_transpose: true
+normalize_activations: none # none, expected_average_only_in, constant_norm_rescale, layer_norm
+
+# Training Parameters
+training_tokens: 819200000  # 100k steps
+train_batch_size_tokens: 8192
+lr: !!float 5e-5
+adam_beta1: 0.9 
+adam_beta2: 0.999
+lr_scheduler_name: constant
+lr_warm_up_steps: 0
+lr_decay_steps: 20000  # 20% of training (NOTE: This is measured in steps: 0.2 * training_tokens // train_batch_size_tokens)
+l1_coefficient: 5
+l1_warm_up_steps: 5000  # 5% of training (NOTE: This is measured in steps: 0.05 * training_tokens // train_batch_size_tokens)
+lp_norm: 1.0  # l1 penalty
+context_size: 1024
+
+# Activation Storage Parameters
+n_batches_in_buffer: 4
+store_batch_size_prompts: 8
+
+# Resampling Protocol (not used)
+use_ghost_grads: false  # we don't use ghost grads anymore.
+feature_sampling_window: 1000  # this controls our reporting of feature sparsity stats
+dead_feature_window: 1000  # would effect resampling or ghost grads if we were using it.
+dead_feature_threshold: !!float 1e-4  # would effect resampling or ghost grads if we were using it.
+
+# WANDB
+log_to_wandb: false
+wandb_project: "sae-ambik"
+run_name: "gemma-2b-it-ctx-1024-l1-5"
+wandb_log_frequency: 30
+eval_every_n_wandb_logs: 20
+# MISC
+device: cuda
+seed: 42
+n_checkpoints: 5
+checkpoint_path: sae_runs
+dtype: float32
+exclude_special_tokens: [128000, 128001]
