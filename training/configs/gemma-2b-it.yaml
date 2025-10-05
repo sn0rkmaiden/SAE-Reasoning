@@ -30,7 +30,7 @@ normalize_sae_decoder: false
 scale_sparsity_penalty_by_decoder_norm: true
 decoder_heuristic_init: true
 init_encoder_as_decoder_transpose: true
-normalize_activations: none # none, expected_average_only_in, constant_norm_rescale, layer_norm
+normalize_activations: expected_average_only_in # none, expected_average_only_in, constant_norm_rescale, layer_norm
 
 # Training Parameters
 training_tokens: 819200000  # 100k steps
@@ -47,8 +47,8 @@ lp_norm: 1.0  # l1 penalty
 context_size: 1024
 
 # Activation Storage Parameters
-n_batches_in_buffer: 4
-store_batch_size_prompts: 8
+n_batches_in_buffer: 8
+store_batch_size_prompts: 16
 
 # Resampling Protocol (not used)
 use_ghost_grads: false  # we don't use ghost grads anymore.
