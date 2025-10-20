@@ -402,7 +402,7 @@ def compute_score(
         model.tokenizer.add_special_tokens({"pad_token": "<PAD>"})
 
     print(">>> Loading dataset")
-    dataset = load_dataset(dataset_path, streaming=False, split="train")
+    dataset = load_dataset(dataset_path, streaming=False, dataset_trust_remote_code=True, split="train")
     if column_name == "tokens":
         token_dataset = dataset.shuffle(seed=42)
     else:
