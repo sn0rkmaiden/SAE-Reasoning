@@ -402,7 +402,7 @@ def compute_score(
         model.tokenizer.add_special_tokens({"pad_token": "<PAD>"})
 
     print(">>> Loading dataset")
-    dataset = load_dataset(dataset_path, streaming=False, trust_remote_code=True, split="train")
+    dataset = load_dataset(dataset_path, streaming=False, split="train")
     if column_name == "tokens":
         token_dataset = dataset.shuffle(seed=42)
     else:
@@ -454,7 +454,7 @@ def compute_score(
     ).run(
         encoder=sae,
         model=model,
-        tokens=token_dataset["tokens"][:n_samples],
+        tokens=torch.tensor(token_dataset["tokens"][:n_samples], dtype=torch.long),
         reason_tokens=reason_tokens,
         ignore_tokens=ignore_tokens,
         expand_range=expand_range,
