@@ -88,7 +88,7 @@ def compute_dashboard(
     ).run(
         encoder=sae,
         model=model,
-        tokens=token_dataset[:n_samples]["tokens"]
+        tokens=torch.tensor(token_dataset[:n_samples]["tokens"], dtype=torch.long)
     )
 
     os.makedirs(output_dir, exist_ok=True)
