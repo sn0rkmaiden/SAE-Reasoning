@@ -30,7 +30,7 @@ def prepare_ambik_dataset(
     private: bool = False
 ):
     """Generate tokenized AmbiK dataset, push to huggingface."""
-    raw_url = "https://raw.githubusercontent.com/cog-model/AmbiK-dataset/main/ambik_dataset/ambik_calib_100.csv"
+    raw_url = "https://raw.githubusercontent.com/cog-model/AmbiK-dataset/main/ambik_dataset/ambik_test_900.csv"
     dataset = load_dataset("csv", data_files=raw_url, split="train")
     dataset = dataset.map(Reasoner().prompt).shuffle(seed=42)
 
@@ -54,7 +54,7 @@ def prepare_ambik_dataset(
     token_dataset = token_dataset.select(random.sample(range(len(token_dataset)), num_samples))
     print(">>> Tokens in the dataset = {}".format(len(token_dataset) * context_size))
 
-    repo_id = os.path.join(hf_user, os.path.basename(model_path) + "-ambik-tokenized")
+    repo_id = os.path.join(hf_user, os.path.basename(model_path) + "-ambik-test-tokenized")
     token_dataset_dict = DatasetDict({"train": token_dataset})
     token_dataset_dict.push_to_hub(repo_id, token=hf_token, private=private)
 
