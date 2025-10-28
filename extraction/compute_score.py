@@ -405,7 +405,8 @@ def compute_score(
     dataset = load_dataset(dataset_path, streaming=False, split="train")
     if column_name == "input_ids":
         dataset = dataset.rename_column("input_ids", "tokens") 
-    if column_name == "tokens":
+        token_dataset = dataset.shuffle(seed=42)
+    elif column_name == "tokens":
         token_dataset = dataset.shuffle(seed=42)
     else:
         print(">>> Tokenize dataset")
