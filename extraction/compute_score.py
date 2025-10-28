@@ -402,7 +402,11 @@ def compute_score(
         model.tokenizer.add_special_tokens({"pad_token": "<PAD>"})
 
     print(">>> Loading dataset")
-    dataset = load_dataset(dataset_path, streaming=False, split="train")
+    if dataset_path == "Skylion007/openwebtext":
+        dataset = load_dataset(dataset_path, streaming=False, trust_remote_code=True, split="train")
+    else:
+        dataset = load_dataset(dataset_path, streaming=False, split="train")
+    
     if column_name == "input_ids":
         dataset = dataset.rename_column("input_ids", "tokens") 
         token_dataset = dataset.shuffle(seed=42)
