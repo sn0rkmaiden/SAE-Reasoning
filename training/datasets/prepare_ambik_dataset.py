@@ -62,4 +62,4 @@ def prepare_ambik_dataset(
 
 
 if __name__ == "__main__":
-    fire.Fire(prepare_ambik_dataset(hf_user="snork-maiden"))
+    fire.Fire(prepare_ambik_dataset)
