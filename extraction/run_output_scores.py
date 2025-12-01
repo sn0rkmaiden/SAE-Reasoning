@@ -135,7 +135,8 @@ def main():
     parser.add_argument("--model_name", type=str, default="gemma-2b-it")
     parser.add_argument("--sae_release", type=str, required=True)
     parser.add_argument("--sae_id", type=str, required=True)
-    parser.add_argument("--hook_name", type=str, required=True)
+    parser.add_argument("--hook_name", type=str, default=None,
+                    help="Optional override. If not provided, the hook_name from the SAE metadata is used.")
 
     parser.add_argument("--dataset", type=str, required=True)
 
@@ -165,6 +166,15 @@ def main():
         device=device
     )
 
+    if args.hook_name is None:
+        if hasattr(sae.cfg, "hook_name"):
+            hook_name = sae.cfg.hook_name
+        elif hasattr(sae.cfg, "metadata") and hasattr(sae.cfg.metadata, "hook_name"):
+            hook_name = sae.cfg.metadata.hook_name
+        else:
+            raise ValueError("Cannot determine hook_name from SAE config.")
+
+
     print("Computing a_max...")
     a_max = compute_a_max_streaming(
         model,
@@ -190,7 +200,7 @@ def main():
     results = compute_output_scores(
         model,
         sae,
-        args.hook_name,
+        hook_name,
         feature_ids,
         a_max,
         s=args.s,
