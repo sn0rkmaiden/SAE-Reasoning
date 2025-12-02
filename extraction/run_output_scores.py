@@ -77,6 +77,7 @@ def compute_output_scores(
 def compute_a_max_streaming(
     model,
     sae,
+    hook_name,
     dataset,
     device=torch.device("cuda"),
     total_tokens: int = 1_000_000,
@@ -108,10 +109,10 @@ def compute_a_max_streaming(
         batch_tokens = store.get_batch_tokens(batch_size=1).to(device)
         with torch.no_grad():
             _, cache = model.run_with_cache(
-                batch_tokens, names_filter=[sae.cfg.metadata.hook_name]
+                batch_tokens, names_filter=[hook_name]
             )
 
-        h = cache[sae.cfg.metadata.hook_name]
+        h = cache[hook_name]
         h_flat = h.reshape(-1, h.shape[-1])
         latent = sae.encode(h_flat)
         batch_max = latent.cpu().max(dim=0).values
@@ -179,6 +180,7 @@ def main():
     a_max = compute_a_max_streaming(
         model,
         sae,
+        hook_name=hook_name,
         dataset=args.dataset,
         n_batches=args.n_batches,
         total_tokens=args.total_tokens,
