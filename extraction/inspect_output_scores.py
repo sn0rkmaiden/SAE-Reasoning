@@ -38,6 +38,12 @@ def main():
     parser.add_argument("--sort_by", type=str, default="output_score",
                         choices=["output_score", "prob", "rank", "feature_id"],
                         help="Sorting metric")
+    
+    parser.add_argument("--save_text", type=str, default=None,
+                    help="Optional: path to save human-readable text report")
+
+    parser.add_argument("--save_json", type=str, default=None,
+                        help="Optional: save enriched JSON including decoded tokens")
 
     args = parser.parse_args()
 
@@ -65,18 +71,44 @@ def main():
 
     print(f"\n=== INSPECTION REPORT (sorted by {args.sort_by}) ===\n")
 
+    text_lines = []
+    enriched_json = {}
+
     for fid, res in ordered:
         top_tokens = res["top_tokens"][:5]
         top_strings = [model.to_string(t) for t in top_tokens]
 
-        print(f"Feature {fid}:")
-        print(f"  - top_tokens IDs = {res['top_tokens']}")
-        print(f"  - top_tokens str = {top_strings}")
-        print(f"  - prob        = {res['prob']:.6f}")
-        print(f"  - rank        = {res['rank']}")
-        print(f"  - output_score = {res['output_score']:.6f}")
-        print(f"  - a_max[{fid}] = {a_max[fid].item():.6f}")
-        print("")
+        block = (
+            f"Feature {fid}:\n"
+            f"  - top_tokens IDs = {res['top_tokens']}\n"
+            f"  - top_tokens str = {top_strings}\n"
+            f"  - prob = {res['prob']:.6f}\n"
+            f"  - rank = {res['rank']}\n"
+            f"  - output_score = {res['output_score']:.6f}\n"
+            f"  - a_max[{fid}] = {a_max[fid].item():.6f}\n"
+        )
+
+        print(block)
+        text_lines.append(block)
+
+        enriched_json[fid] = {
+            **res,
+            "top_tokens_str": top_strings,
+            "a_max": float(a_max[fid].item())
+        }
+
+    # Save text report
+    if args.save_text:
+        text_path = Path(args.save_text)
+        text_path.write_text("\n".join(text_lines), encoding="utf-8")
+        print(f"\nSaved text report to: {text_path}")
+
+    # Save enriched JSON
+    if args.save_json:
+        json_path = Path(args.save_json)
+        with open(json_path, "w") as f:
+            json.dump(enriched_json, f, indent=2)
+        print(f"Saved enriched JSON to: {json_path}")
 
     print("Done.")
 
