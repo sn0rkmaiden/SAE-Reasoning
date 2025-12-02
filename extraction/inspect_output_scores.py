@@ -43,7 +43,7 @@ def main():
 
     print("Loading model...")
     device = "cuda" if torch.cuda.is_available() else "cpu"
-    model = HookedTransformer.from_pretrained(args.model_name, device=device, dtype=torch.float16)
+    model = HookedTransformer.from_pretrained_no_processing(args.model_name, device=device, dtype=torch.float16)
 
     # Load results
     scores_path = Path(args.scores_path)
@@ -51,6 +51,8 @@ def main():
         results = json.load(f)
 
     a_max = torch.load(args.a_max_path, map_location="cpu")
+
+    print("Loaded a_max.")
 
     results = {int(k): v for k, v in results.items()}
 

@@ -41,7 +41,7 @@ def compute_output_scores(
     print("Computing output scores...")
     results = {}
     for i in feature_ids:
-        print(f"feature = {i}")
+        # print(f"feature = {i}")
         l_star = top_tokens[i][0]
 
         def hook_fn(value, hook):
