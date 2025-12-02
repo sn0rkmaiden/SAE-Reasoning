@@ -218,6 +218,7 @@ def compute_dashboard(
         "dashboard_path": str(dashboard_path),
     }
     save_config(dashboard_dir / "config.json", "compute_dashboard.py", args_dict, derived, device)
+    print(f">>> Saved config to: {dashboard_dir / 'config.json'}")
 
 
 if __name__ == "__main__":
