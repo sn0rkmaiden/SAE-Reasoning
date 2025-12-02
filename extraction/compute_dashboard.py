@@ -202,7 +202,9 @@ def compute_dashboard(
 
     # Save config
     arg_names = inspect.getfullargspec(compute_dashboard).args
-    args_dict = {name: locals()[name] for name in arg_names}
+    frame_locals = locals()
+    args_dict = {name: frame_locals[name] for name in arg_names}
+
     derived = {
         "hook_name": hook_name,
         "layer": layer,

@@ -543,7 +543,9 @@ def compute_score(
 
     # Save config.json with all args + derived info
     arg_names = inspect.getfullargspec(compute_score).args
-    args_dict = {name: locals()[name] for name in arg_names}
+    frame_locals = locals()
+    args_dict = {name: frame_locals[name] for name in arg_names}
+
     derived = {
         "hook_name": hook_name,
         "layer": layer,
