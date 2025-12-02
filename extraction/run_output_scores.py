@@ -157,10 +157,10 @@ def main():
     out_dir.mkdir(parents=True, exist_ok=True)
 
     print("Loading model...")
-    model = HookedTransformer.from_pretrained(args.model_name, device=device, dtype=torch.float16)
+    model = HookedTransformer.from_pretrained_no_processing(args.model_name, device=device, dtype=torch.float16)
 
     print("Loading SAE...")
-    sae = SAE.from_pretrained(
+    sae, _, _ = SAE.from_pretrained(
         release=args.sae_release,
         sae_id=args.sae_id,
         device=device
