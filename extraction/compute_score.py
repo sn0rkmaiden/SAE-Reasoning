@@ -22,6 +22,11 @@ from sae_lens.config import DTYPE_MAP as DTYPES
 from sae_lens.sae import TopK
 from sae_dashboard.feature_data_generator import FeatureMaskingContext
 
+from pathlib import Path
+from datetime import datetime
+import sys
+import inspect
+
 
 @dataclass
 class SaeSelectionConfig:
@@ -44,8 +49,8 @@ def split_data(data, num_parts):
 
 class RollingMean:
     def __init__(
-        self, 
-        tokens_of_interest: List[List[Tensor]], 
+        self,
+        tokens_of_interest: List[List[Tensor]],
         ignore_tokens: List[int] = None,
         expand_range: Tuple[int, int] = None
     ):
@@ -56,7 +61,7 @@ class RollingMean:
         # single-level statistics
         self._means = None
         self._counts = [0] * len(self.tokens_of_interest)
-        
+
         # whole positive statistics
         self._mean_pos = None
         self._count_pos = 0
@@ -69,7 +74,7 @@ class RollingMean:
         """Compute mask for a single token sequence with expansion."""
         seq_len = tokens.size(1)
         ids_len = len(ids_of_interest)
-        
+
         mask = torch.zeros_like(tokens, dtype=torch.bool, device=tokens.device)
         if ids_len > seq_len:
             return mask
@@ -120,11 +125,11 @@ class RollingMean:
         upd_mean = acc_mean + (count / upd_count) * (mean - acc_mean)
 
         return upd_mean, upd_count
-    
+
     def update(self, tokens: Int[Tensor, "batch seq"], feature_acts: Float[Tensor, "batch seq n"]):
         assert tokens.ndim == 2 and feature_acts.ndim == 3, "tokens should be 2D, feature acts - 3D"
         assert tokens.size() == feature_acts.size()[:-1], "Batch and sequence dimensions must match"
-        
+
         n = feature_acts.size(-1)
 
         if self._means is None:
@@ -142,16 +147,16 @@ class RollingMean:
                 [seq.to(device) for seq in seq_group]
                 for seq_group in self.tokens_of_interest
             ]
-        
+
         if len(self.ignore_tokens) > 0:
             ignore_tensor = torch.tensor(self.ignore_tokens, dtype=torch.long, device=tokens.device)
             ignore_mask = torch.isin(tokens, ignore_tensor)
         else:
             ignore_mask = torch.zeros_like(tokens, dtype=torch.bool)
-        
+
         mask_combined = torch.zeros_like(tokens, dtype=torch.bool)
         for i, seq_group in enumerate(self.tokens_of_interest):
-            # Compute mask for one token
+            # Compute mask for one token group
             group_mask = torch.zeros_like(tokens, dtype=torch.bool)
             for seq in seq_group:
                 seq_mask = self._compute_single_mask(tokens, seq)
@@ -170,7 +175,7 @@ class RollingMean:
         self._mean_pos, self._count_pos = self._compute_update(
             tokens, feature_acts, mask_pos, self._mean_pos, self._count_pos
         )
-        
+
         # Update 'negative' stats
         mask_neg = (~mask_combined) & (~ignore_mask)
         self._mean_neg, self._count_neg = self._compute_update(
@@ -180,15 +185,15 @@ class RollingMean:
     def stats(self):
         """Returns tensors of shape [n_features, 2] & [n_features, n_reason_tokens]."""
         single_means = torch.stack(self._means, dim=1) if len(self._means) > 0 else torch.tensor([])
-        
+
         means = torch.stack([self._mean_pos, self._mean_neg], dim=1)
 
         return means, single_means
 
 
 class FeatureStatisticsGenerator:
-    """Generator used to accumulate reasoning-related statistics for a batch of features. 
-    
+    """Generator used to accumulate reasoning-related statistics for a batch of features.
+
     Highly inspired by `sae_dashboard.FeatureDataGenerator`.
     """
     def __init__(
@@ -241,7 +246,7 @@ class FeatureStatisticsGenerator:
         feature_means = RollingMean(self.reason_tokens, self.ignore_tokens, self.expand_range)
 
         for i, minibatch in tqdm(
-            enumerate(self.token_minibatches), desc="Statistics aggregation", 
+            enumerate(self.token_minibatches), desc="Statistics aggregation",
             total=len(self.token_minibatches), leave=False
         ):
             minibatch.to(self.cfg.device)
@@ -263,7 +268,7 @@ class FeatureStatisticsGenerator:
                     )
 
             feature_means.update(minibatch, feature_acts)
-            
+
         agg_means, agg_single_means = feature_means.stats()
 
         return agg_means, agg_single_means
@@ -278,7 +283,7 @@ class FeatureStatisticsGenerator:
         hooks = [(self.cfg.hook_point, hook_fn_store_act)]
 
         self.model.run_with_hooks(
-            tokens, stop_at_layer=self.hook_layer + 1, 
+            tokens, stop_at_layer=self.hook_layer + 1,
             fwd_hooks=hooks, return_type=None
         )
 
@@ -291,7 +296,7 @@ class FeatureStatisticsGenerator:
 
 class SaeSelectionRunner:
     """Runner used to collect reasoning-related statistics.
-    
+
     Highly inspired by `sae_dashboard.SaeVisRunner`.
     """
     def __init__(self, cfg: SaeSelectionConfig):
@@ -299,9 +304,9 @@ class SaeSelectionRunner:
 
     @torch.inference_mode()
     def run(
-        self, 
+        self,
         encoder: SAE,
-        model: HookedTransformer, 
+        model: HookedTransformer,
         tokens: Int[Tensor, "batch seq"],
         reason_tokens: List[List[Tensor]],
         ignore_tokens: List[int] = None,
@@ -325,8 +330,8 @@ class SaeSelectionRunner:
             all_feature_means.append(feature_means)
             all_feature_single_means.append(feature_single_means)
 
-        all_feature_means = torch.concat(all_feature_means, dim=0)  # [d_sae, 2]
-        all_feature_single_means = torch.concat(all_feature_single_means, dim=0)  # [d_sae, |reason_tokens|]
+        all_feature_means = torch.concat(all_feature_means, dim=0)  # [d_sae_chunk, 2]
+        all_feature_single_means = torch.concat(all_feature_single_means, dim=0)  # [d_sae_chunk, |reason_tokens|]
 
         # compute entropy
         probs = all_feature_single_means / (all_feature_single_means.sum(dim=1, keepdim=True) + epsilon)
@@ -335,13 +340,13 @@ class SaeSelectionRunner:
         # normalize
         if probs.size(1) > 1:
             h_norm = h / math.log(probs.size(1))
-        else: # do not compute entropy
+        else:  # do not compute entropy
             h_norm = torch.ones_like(h)
-        
+
         # compute ReasonScore
         sum_pos = all_feature_means[:, 0].sum(dim=0, keepdim=True) + epsilon
         sum_neg = all_feature_means[:, 1].sum(dim=0, keepdim=True) + epsilon
-        
+
         scores = (
             (all_feature_means[:, 0] / sum_pos) * h_norm**alpha
             - (all_feature_means[:, 1] / sum_neg)
@@ -366,12 +371,40 @@ class SaeSelectionRunner:
         return feature_batches
 
 
+def extract_layer_from_hook_name(hook_name: str) -> int:
+    m = re.search(r"blocks\.(\d+)\.", hook_name)
+    if not m:
+        raise ValueError(f"Could not extract layer from hook_name {hook_name!r}")
+    return int(m.group(1))
+
+
+def sanitize_model_name(model_path: str) -> str:
+    # Use HF repo id or path, but make it filesystem-safe
+    return model_path.replace("/", "__")
+
+
+def save_config(config_path: Path, script_name: str, args_dict: dict, derived: dict, device: str):
+    config = {
+        "script": script_name,
+        "timestamp": datetime.now().isoformat(timespec="seconds"),
+        "command": " ".join(sys.argv),
+        "args": args_dict,
+        "derived": derived,
+        "environment": {
+            "device": device,
+            "torch_version": torch.__version__,
+        },
+    }
+    config_path.write_text(json.dumps(config, indent=2), encoding="utf-8")
+
+
 def compute_score(
     model_path: str,
     sae_path: str,
     dataset_path: str,
     tokens_str_path: str,
-    output_dir: str,
+    exp_root: str,
+    vocab_name: str,
     sae_id: str = None,
     expand_range: Tuple[int, int] = None,
     ignore_tokens: List[int] = None,
@@ -383,7 +416,18 @@ def compute_score(
     num_chunks: int = 1,
     chunk_num: int = 0
 ):
-    """Compute `reasoning` feature scores."""
+    """Compute ReasonScore feature scores and save them into a structured experiment directory.
+
+    Output layout:
+
+        exp_root /
+          vocab_name /
+            <sanitized model_path> /
+              layer_<L> /
+                reason_scores /
+                  chunk_XXXX / feature_scores.pt  (if num_chunks > 1)
+                  merged / feature_scores.pt      (if num_chunks == 1)
+    """
     device = "cuda" if torch.cuda.is_available() else "cpu"
 
     print(">>> Loading SAE and LLM")
@@ -391,6 +435,29 @@ def compute_score(
         sae = SAE.load_from_pretrained(sae_path, device=device)
     else:
         sae, _, _ = SAE.from_pretrained(sae_path, sae_id, device=device)
+
+    # Determine hook_name and layer from SAE config
+    if hasattr(sae.cfg, "hook_name"):
+        hook_name = sae.cfg.hook_name
+    elif hasattr(sae.cfg, "metadata") and hasattr(sae.cfg.metadata, "hook_name"):
+        hook_name = sae.cfg.metadata.hook_name
+    else:
+        raise ValueError("SAE config does not contain hook_name or metadata.hook_name")
+
+    layer = extract_layer_from_hook_name(hook_name)
+    model_dir_name = sanitize_model_name(model_path)
+
+    base_dir = Path(exp_root) / vocab_name / model_dir_name / f"layer_{layer}" / "reason_scores"
+    if num_chunks > 1:
+        chunk_dir = base_dir / f"chunk_{chunk_num:04d}"
+    else:
+        chunk_dir = base_dir / "merged"
+
+    if chunk_dir.exists():
+        print(f"[warning] Directory already exists — reusing: {chunk_dir}")
+    chunk_dir.mkdir(parents=True, exist_ok=True)
+
+    print(f">>> Scores will be saved under: {chunk_dir}")
 
     model = HookedTransformer.from_pretrained_no_processing(
         model_path,
@@ -406,9 +473,9 @@ def compute_score(
         dataset = load_dataset(dataset_path, streaming=False, trust_remote_code=True, split="train")
     else:
         dataset = load_dataset(dataset_path, streaming=False, split="train")
-    
+
     if column_name == "input_ids":
-        dataset = dataset.rename_column("input_ids", "tokens") 
+        dataset = dataset.rename_column("input_ids", "tokens")
         token_dataset = dataset.shuffle(seed=42)
     elif column_name == "tokens":
         token_dataset = dataset.shuffle(seed=42)
@@ -423,7 +490,7 @@ def compute_score(
             add_bos_token=sae.cfg.prepend_bos,
             num_proc=4
         ).shuffle(seed=42)
-    
+
     with open(tokens_str_path, 'r') as file:
         tokens_str = json.load(file)
 
@@ -436,19 +503,19 @@ def compute_score(
         grouped_tokens[normalized_str].append(torch.tensor(token_ids, dtype=torch.long))
     reason_tokens = list(grouped_tokens.values())
     print(">>> tokens ids: {}".format(reason_tokens))
-    
+
     if expand_range is not None:
         print(">>> Using expansion: {}".format(expand_range))
     if ignore_tokens is not None:
         print(">>> Using ignore tokens: {}".format(ignore_tokens))
-    
+
     features = list(range(sae.cfg.d_sae))
     if num_chunks > 1:
         features = split_data(features, num_chunks)[chunk_num]
         print(f">>> Processing features in chunks. Current chunk: {chunk_num}, size: {len(features)}")
 
     sae_selection_cfg = SaeSelectionConfig(
-        hook_point=sae.cfg.hook_name,
+        hook_point=hook_name,
         features=features,
         minibatch_size_features=minibatch_size_features,
         minibatch_size_tokens=minibatch_size_tokens,
@@ -469,9 +536,26 @@ def compute_score(
     )
 
     # save feature scores
-    os.makedirs(output_dir, exist_ok=True)
-    output_name = "feature_scores.pt" if num_chunks == 1 else "feature_scores_{}.pt".format(chunk_num)
-    torch.save(feature_scores.cpu(), os.path.join(output_dir, output_name))
+    output_name = "feature_scores.pt"
+    output_path = chunk_dir / output_name
+    torch.save(feature_scores.cpu(), output_path)
+    print(f">>> Saved feature scores to: {output_path}")
+
+    # Save config.json with all args + derived info
+    arg_names = inspect.getfullargspec(compute_score).args
+    args_dict = {name: locals()[name] for name in arg_names}
+    derived = {
+        "hook_name": hook_name,
+        "layer": layer,
+        "num_features_total": sae.cfg.d_sae,
+        "num_features_in_chunk": len(features),
+        "chunk_num": chunk_num,
+        "num_chunks": num_chunks,
+        "tokens_str_count": len(tokens_str),
+        "output_path": str(output_path),
+    }
+    save_config(chunk_dir / "config.json", "compute_score.py", args_dict, derived, device)
+
 
 if __name__ == "__main__":
     fire.Fire(compute_score)

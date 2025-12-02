@@ -8,16 +8,16 @@ from transformer_lens import HookedTransformer
 Example usage:
 
 python inspect_output_scores.py \
-  --scores_path results/output_scores.json \
-  --a_max_path results/a_max.pt \
+  --scores_path /.../output_scores/topk_200/output_scores.json \
+  --a_max_path   /.../output_scores/topk_200/a_max.pt \
   --model_name gemma-2b-it \
   --sort_by output_score
 
 or sort by rank:
 
 python inspect_output_scores.py \
-  --scores_path results/output_scores.json \
-  --a_max_path results/a_max.pt \
+  --scores_path ... \
+  --a_max_path ... \
   --sort_by rank
 
 """
@@ -100,12 +100,14 @@ def main():
     # Save text report
     if args.save_text:
         text_path = Path(args.save_text)
+        text_path.parent.mkdir(parents=True, exist_ok=True)
         text_path.write_text("\n".join(text_lines), encoding="utf-8")
         print(f"\nSaved text report to: {text_path}")
 
     # Save enriched JSON
     if args.save_json:
         json_path = Path(args.save_json)
+        json_path.parent.mkdir(parents=True, exist_ok=True)
         with open(json_path, "w") as f:
             json.dump(enriched_json, f, indent=2)
         print(f"Saved enriched JSON to: {json_path}")

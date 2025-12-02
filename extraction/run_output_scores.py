@@ -1,10 +1,37 @@
 import argparse
 import json
-import os
 import torch
+import os
+
 from pathlib import Path
+from datetime import datetime
+import sys
+import re
+
 from sae_lens import SAE, ActivationsStore
 from transformer_lens import HookedTransformer
+
+
+def extract_layer_from_hook_name(hook_name: str) -> int:
+    m = re.search(r"blocks\.(\d+)\.", hook_name)
+    if not m:
+        raise ValueError(f"Could not extract layer from hook_name {hook_name!r}")
+    return int(m.group(1))
+
+
+def save_config(config_path: Path, script_name: str, args_dict: dict, derived: dict, device: str):
+    config = {
+        "script": script_name,
+        "timestamp": datetime.now().isoformat(timespec="seconds"),
+        "command": " ".join(sys.argv),
+        "args": args_dict,
+        "derived": derived,
+        "environment": {
+            "device": device,
+            "torch_version": torch.__version__,
+        },
+    }
+    config_path.write_text(json.dumps(config, indent=2), encoding="utf-8")
 
 
 def compute_output_scores(
@@ -41,7 +68,6 @@ def compute_output_scores(
     print("Computing output scores...")
     results = {}
     for i in feature_ids:
-        # print(f"feature = {i}")
         l_star = top_tokens[i][0]
 
         def hook_fn(value, hook):
@@ -128,16 +154,25 @@ def compute_a_max_streaming(
 def main():
     parser = argparse.ArgumentParser()
 
-    parser.add_argument("--feature_path", type=str, required=True)
-    parser.add_argument("--output_dir", type=str, required=True)
+    parser.add_argument(
+        "--feature_path",
+        type=str,
+        required=True,
+        help="Path to feature_scores.pt used to select top-k features."
+    )
 
-    parser.add_argument("--topk", type=int, required=True)
+    parser.add_argument("--topk", type=int, required=True,
+                        help="Number of top features to use for steering / output scores.")
 
     parser.add_argument("--model_name", type=str, default="gemma-2b-it")
     parser.add_argument("--sae_release", type=str, required=True)
     parser.add_argument("--sae_id", type=str, required=True)
-    parser.add_argument("--hook_name", type=str, default=None,
-                    help="Optional override. If not provided, the hook_name from the SAE metadata is used.")
+    parser.add_argument(
+        "--hook_name",
+        type=str,
+        default=None,
+        help="Optional override. If not provided, hook_name is taken from SAE config."
+    )
 
     parser.add_argument("--dataset", type=str, required=True)
 
@@ -154,11 +189,25 @@ def main():
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
 
-    out_dir = Path(args.output_dir)
+    feature_path = Path(args.feature_path).resolve()
+    if not feature_path.exists():
+        raise FileNotFoundError(f"feature_path not found: {feature_path}")
+
+    # Output directory is derived from the feature_scores location:
+    #   <.../reason_scores/chunk_XXXX or merged>/output_scores/topk_<topk>/
+    feature_dir = feature_path.parent
+    out_dir = feature_dir / "output_scores" / f"topk_{args.topk}"
+    if out_dir.exists():
+        print(f"[warning] Output dir already exists — reusing: {out_dir}")
     out_dir.mkdir(parents=True, exist_ok=True)
+    print(f">>> Output scores will be saved under: {out_dir}")
 
     print("Loading model...")
-    model = HookedTransformer.from_pretrained_no_processing(args.model_name, device=device, dtype=torch.float16)
+    model = HookedTransformer.from_pretrained_no_processing(
+        args.model_name,
+        device=device,
+        dtype=torch.float16
+    )
 
     print("Loading SAE...")
     sae, _, _ = SAE.from_pretrained(
@@ -174,7 +223,12 @@ def main():
             hook_name = sae.cfg.metadata.hook_name
         else:
             raise ValueError("Cannot determine hook_name from SAE config.")
+        print(f"Using hook_name from SAE config: {hook_name}")
+    else:
+        hook_name = args.hook_name
+        print(f"Using user-provided hook_name: {hook_name}")
 
+    layer = extract_layer_from_hook_name(hook_name)
 
     print("Computing a_max...")
     a_max = compute_a_max_streaming(
@@ -194,7 +248,7 @@ def main():
     print(f"Saved a_max to: {a_max_path}")
 
     print("Loading feature scores...")
-    feature_scores = torch.load(args.feature_path, map_location="cpu", weights_only=True)
+    feature_scores = torch.load(feature_path, map_location="cpu", weights_only=True)
     topk_features = feature_scores.topk(k=args.topk).indices.tolist()
     feature_ids = sorted(topk_features)
 
@@ -216,6 +270,21 @@ def main():
         json.dump(results, f, indent=2)
 
     print(f"Saved results to: {output_path}")
+
+    # Save config.json
+    args_dict = vars(args).copy()
+    derived = {
+        "hook_name": hook_name,
+        "layer": layer,
+        "feature_path": str(feature_path),
+        "output_dir": str(out_dir),
+        "a_max_path": str(a_max_path),
+        "output_scores_path": str(output_path),
+        "n_features_total": int(feature_scores.shape[0]),
+        "n_features_used": len(feature_ids),
+        "topk_features": feature_ids,
+    }
+    save_config(out_dir / "config.json", "run_output_scores.py", args_dict, derived, device)
 
 
 if __name__ == "__main__":
