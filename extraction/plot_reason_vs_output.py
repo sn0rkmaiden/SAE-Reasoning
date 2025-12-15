@@ -1,5 +1,6 @@
 import argparse
 import json
+import re
 from pathlib import Path
 
 import torch
@@ -17,13 +18,41 @@ python plot_reason_vs_output.py \
 
 """
 
+def extract_metadata(reason_path: str, output_path: str) -> str:
+    p1 = Path(reason_path)
+    p2 = Path(output_path)
+
+    full = str(p1) + " " + str(p2)
+
+    def grab(pattern):
+        m = re.search(pattern, full)
+        return m.group(1) if m else None
+
+    model = grab(r"experiments/[^/]+/([^/]+)/")
+    layer = grab(r"layer_(\d+)")
+    chunk = grab(r"chunk_(\d+)")
+    topk = grab(r"topk_(\d+)")
+
+    parts = []
+
+    if model:
+        parts.append(model.replace("-", "-"))  # non-breaking hyphen for LaTeX/PDF
+    if layer:
+        parts.append(f"Layer {layer}")
+    if chunk:
+        parts.append(f"Chunk {chunk}")
+    if topk:
+        parts.append(f"Top-{topk}")
+
+    return " · ".join(parts) if parts else "ReasonScore vs OutputScore"
+
+
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--reason_pt", required=True, help="Path to feature_scores.pt (ReasonScore tensor)")
     ap.add_argument("--output_json", required=True, help="Path to output_scores.json (dict with output_score)")
     ap.add_argument("--out", default="reason_vs_output.png")
-    ap.add_argument("--title", default="Выбор признаков: метрики редко максимальны одновременно")
     ap.add_argument("--use_only_output_features", action="store_true",
                     help="Plot only features present in output_scores.json (recommended).")
     args = ap.parse_args()
@@ -64,7 +93,11 @@ def main():
 
     plt.figure(figsize=(10, 6))
     plt.scatter(xs, ys, s=18)
-    plt.title(args.title)
+    title = extract_metadata(
+        args.reason_pt,
+        args.output_json,
+    )
+    plt.title(title)
     plt.xlabel("ReasonScore")
     plt.ylabel("OutputScore")
     plt.grid(True, alpha=0.3)
