@@ -3,8 +3,20 @@ import json
 from pathlib import Path
 import re
 
+import matplotlib as mpl
+
+mpl.rcParams.update({
+    "font.size": 14,
+    "axes.titlesize": 16,
+    "axes.labelsize": 14,
+    "xtick.labelsize": 12,
+    "ytick.labelsize": 12,
+})
+
 import torch
 import matplotlib.pyplot as plt
+
+
 
 """
 Usage examples:
@@ -75,7 +87,7 @@ def main():
     )
     ap.add_argument("--use_only_output_features", action="store_true")
     ap.add_argument("--grid_cols", type=int, default=3)
-    ap.add_argument("--out", default="reason_vs_output.png")
+    ap.add_argument("--out", default="reason_vs_output.pdf")
     ap.add_argument("--share_axes", action="store_true", help="Share x/y axes across subplots (recommended).")
     args = ap.parse_args()
 
@@ -103,7 +115,7 @@ def main():
     cols = max(1, args.grid_cols)
     rows = (n + cols - 1) // cols
 
-    figsize = (cols * 5.2, rows * 4.0)
+    figsize = (cols * 6.0, rows * 4.8)
     fig, axes = plt.subplots(rows, cols, figsize=figsize,
                              sharex=args.share_axes, sharey=args.share_axes)
     if rows == 1 and cols == 1:
@@ -122,7 +134,7 @@ def main():
     for idx, (reason_pt, output_json, xs, ys) in enumerate(all_data):
         r, c = divmod(idx, cols)
         ax = axes[r][c]
-        ax.scatter(xs, ys, s=18)
+        ax.scatter(xs, ys, s=28)
         ax.set_title(extract_metadata(reason_pt, output_json))
         ax.grid(True, alpha=0.3)
         ax.set_xlabel("ReasonScore")
@@ -137,7 +149,7 @@ def main():
         axes[r][c].axis("off")
 
     fig.tight_layout()
-    fig.savefig(args.out, dpi=200)
+    fig.savefig(args.out, bbox_inches="tight")
     print(f"[ok] saved {args.out} with {n} subplot(s)")
 
 

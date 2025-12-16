@@ -2,6 +2,16 @@ import argparse
 import json, re
 from pathlib import Path
 
+import matplotlib as mpl
+
+mpl.rcParams.update({
+    "font.size": 14,
+    "axes.titlesize": 16,
+    "axes.labelsize": 14,
+    "xtick.labelsize": 12,
+    "ytick.labelsize": 12,
+})
+
 import matplotlib.pyplot as plt
 
 """
@@ -76,7 +86,7 @@ def main():
     ap.add_argument("--bins", type=int, default=50)
     ap.add_argument("--title", default=None,
                 help="Optional manual title override")
-    ap.add_argument("--out", default="outputscore_hist.png")
+    ap.add_argument("--out", default="outputscore_hist.pdf")
     ap.add_argument("--min", type=float, default=None, help="Optional lower cutoff")
     ap.add_argument("--max", type=float, default=None, help="Optional upper cutoff")
     ap.add_argument("--logy", action="store_true", help="Log scale on Y axis")
@@ -114,7 +124,7 @@ def main():
     if args.logy:
         plt.yscale("log")
     plt.tight_layout()
-    plt.savefig(args.out, dpi=200)
+    plt.savefig(args.out, bbox_inches="tight")
     print(f"[ok] saved {args.out}")
     print(f"[info] files={len(files)} scores={len(all_scores)}")
 
