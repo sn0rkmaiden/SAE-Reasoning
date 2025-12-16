@@ -1,0 +1,19 @@
+{
+  "script": "compute_score.py",
+  "note": "Config reconstructed manually after run crashed on logging.",
+  "args": {
+    "model_path": "gemma-2-9b-it",
+    "sae_path": "gemma-scope-9b-it-res-canonical",
+    "sae_id": "layer_20/width_16k/canonical",
+    "dataset_path": "snork-maiden/gemma-2-9b-it-lmsys-subset-tokenized-v2",
+    "tokens_str_path": "/home/petrova_am/SAE-Reasoning/extraction/clarifying_vocab_v2.json",
+    "exp_root": "experiments",
+    "vocab_name": "clar_vocab2",
+    "n_samples": 4096,
+    "column_name": "tokens",
+    "minibatch_size_features": 256,
+    "minibatch_size_tokens": 16,
+    "num_chunks": 20,
+    "chunk_num": 2
+  }
+}
