@@ -1,0 +1,399 @@
+Feature 771:
+  - top_tokens IDs = [235265, 235269, 235289, 1861, 723, 235341, 1173, 5918, 235362, 1452]
+  - top_tokens str = ['.', ',', ';', ' because', '..']
+  - prob = 0.991699
+  - rank = 1
+  - output_score = 0.991695
+  - a_max[771] = 47.822098
+
+Feature 344:
+  - top_tokens IDs = [2145, 142041, 17610, 39075, 23855, 11553, 49264, 166350, 223739, 29666]
+  - top_tokens str = [' both', ' begge', 'Both', ' ambos', 'both']
+  - prob = 0.026764
+  - rank = 8
+  - output_score = 0.026763
+  - a_max[344] = 12.088761
+
+Feature 383:
+  - top_tokens IDs = [4553, 172278, 23177, 25965, 40555, 52900, 72863, 35782, 129353, 15450]
+  - top_tokens str = [' everything', 'enterOuterAlt', ' Everything', 'Everything', 'Bronnen']
+  - prob = 0.000818
+  - rank = 68
+  - output_score = 0.000818
+  - a_max[383] = 0.000000
+
+Feature 688:
+  - top_tokens IDs = [1812, 27258, 147746, 12686, 79001, 5188, 40741, 139023, 16922, 152709]
+  - top_tokens str = [' system', ' système', ' systeem', ' sistema', 'ssystem']
+  - prob = 0.000235
+  - rank = 171
+  - output_score = 0.000235
+  - a_max[688] = 12.781886
+
+Feature 565:
+  - top_tokens IDs = [3712, 9463, 36900, 7545, 6705, 7501, 53275, 71653, 25063, 30281]
+  - top_tokens str = [' price', ' Price', ' priced', 'price', 'Price']
+  - prob = 0.000212
+  - rank = 194
+  - output_score = 0.000212
+  - a_max[565] = 10.257831
+
+Feature 591:
+  - top_tokens IDs = [1490, 4414, 5375, 1032, 17085, 19253, 119679, 13975, 154671, 50418]
+  - top_tokens str = [' now', ' Now', 'Now', 'now', ' ahora']
+  - prob = 0.000079
+  - rank = 431
+  - output_score = 0.000078
+  - a_max[591] = 8.609692
+
+Feature 630:
+  - top_tokens IDs = [5191, 5817, 72088, 14666, 18648, 5490, 25340, 17860, 187439, 52944]
+  - top_tokens str = [' images', 'photo', ' photographed', ' Images', 'Images']
+  - prob = 0.000043
+  - rank = 714
+  - output_score = 0.000043
+  - a_max[630] = 8.783935
+
+Feature 19:
+  - top_tokens IDs = [211636, 25113, 41387, 211363, 8947, 142403, 49132, 54142, 106278, 229431]
+  - top_tokens str = [' Budgets', ' Budget', 'Budget', ' Budgeting', ' budget']
+  - prob = 0.000025
+  - rank = 1080
+  - output_score = 0.000025
+  - a_max[19] = 6.490257
+
+Feature 628:
+  - top_tokens IDs = [6785, 17345, 32572, 16324, 27626, 102854, 70097, 65912, 123820, 40413]
+  - top_tokens str = [' wind', ' Wind', 'Wind', 'wind', ' winds']
+  - prob = 0.000017
+  - rank = 1243
+  - output_score = 0.000017
+  - a_max[628] = 0.000000
+
+Feature 721:
+  - top_tokens IDs = [1809, 34330, 54130, 32056, 126591, 183157, 64312, 186567, 13835, 20467]
+  - top_tokens str = [' same', ' similarly', 'Similarly', ' Similarly', 'Likewise']
+  - prob = 0.000009
+  - rank = 2031
+  - output_score = 0.000009
+  - a_max[721] = 6.604349
+
+Feature 584:
+  - top_tokens IDs = [29514, 161522, 152638, 218388, 36700, 145217, 33191, 156403, 117813, 191144]
+  - top_tokens str = [' boring', 'Boring', ' Boring', ' uninteresting', ' bland']
+  - prob = 0.000008
+  - rank = 2010
+  - output_score = 0.000008
+  - a_max[584] = 5.428586
+
+Feature 666:
+  - top_tokens IDs = [19735, 41454, 82441, 44514, 104471, 206568, 78349, 46511, 7017, 8385]
+  - top_tokens str = [' optimal', ' optimum', ' Optimal', ' optimize', ' optimale']
+  - prob = 0.000006
+  - rank = 2474
+  - output_score = 0.000006
+  - a_max[666] = 6.559293
+
+Feature 182:
+  - top_tokens IDs = [10457, 24428, 194640, 24640, 25717, 28770, 49045, 195680, 68064, 35735]
+  - top_tokens str = [' feedback', ' correction', ' corregir', ' editing', 'Feedback']
+  - prob = 0.000003
+  - rank = 202
+  - output_score = 0.000003
+  - a_max[182] = 53.196159
+
+Feature 596:
+  - top_tokens IDs = [8143, 52160, 65688, 29154, 107846, 131058, 68670, 45890, 210554, 179687]
+  - top_tokens str = [' characters', ' Characters', 'tagHelperRunner', ' franchise', ' Franchise']
+  - prob = 0.000002
+  - rank = 4502
+  - output_score = 0.000002
+  - a_max[596] = 0.000000
+
+Feature 166:
+  - top_tokens IDs = [1170, 12404, 671, 1378, 1767, 2149, 3757, 39634, 708, 196810]
+  - top_tokens str = [' also', ' numerous', ' an', ' two', ' many']
+  - prob = 0.000002
+  - rank = 4361
+  - output_score = 0.000002
+  - a_max[166] = 9.151557
+
+Feature 671:
+  - top_tokens IDs = [146882, 167059, 49059, 67338, 186226, 230576, 129854, 231344, 88066, 175460]
+  - top_tokens str = [' walkthrough', 'ksamkeit', 'gebung', 'rinth', 'oa̍t']
+  - prob = 0.000001
+  - rank = 6162
+  - output_score = 0.000001
+  - a_max[671] = 16.491936
+
+Feature 176:
+  - top_tokens IDs = [37629, 117266, 49599, 38053, 233372, 83350, 3131, 102612, 65356, 159214]
+  - top_tokens str = [' Above', 'FormTagHelper', 'Above', 'above', 'ThemeOverlay']
+  - prob = 0.000001
+  - rank = 8870
+  - output_score = 0.000001
+  - a_max[176] = 19.773985
+
+Feature 457:
+  - top_tokens IDs = [4975, 4094, 14949, 46934, 3139, 37688, 143848, 17588, 18129, 148385]
+  - top_tokens str = [' national', ' National', 'National', ' NATIONAL', 'national']
+  - prob = 0.000000
+  - rank = 5109
+  - output_score = 0.000000
+  - a_max[457] = 25.278858
+
+Feature 549:
+  - top_tokens IDs = [180245, 48180, 135802, 132481, 171725, 45138, 113079, 121094, 73756, 120646]
+  - top_tokens str = ['simplify', ' simplify', ' Simplify', ' simplifying', 'simplified']
+  - prob = 0.000000
+  - rank = 9177
+  - output_score = 0.000000
+  - a_max[549] = 35.759251
+
+Feature 242:
+  - top_tokens IDs = [16382, 7716, 43244, 21949, 6959, 91613, 18774, 9439, 98520, 25705]
+  - top_tokens str = [' scores', ' score', ' questionnaire', ' scoring', ' scale']
+  - prob = 0.000000
+  - rank = 15199
+  - output_score = 0.000000
+  - a_max[242] = 0.000000
+
+Feature 387:
+  - top_tokens IDs = [22799, 81948, 183157, 11856, 37440, 222700, 15005, 191882, 53632, 189165]
+  - top_tokens str = [' coins', ' Coins', '+#+#', ' issued', ' Coin']
+  - prob = 0.000000
+  - rank = 21948
+  - output_score = 0.000000
+  - a_max[387] = 0.000000
+
+Feature 30:
+  - top_tokens IDs = [133697, 73529, 12590, 49322, 142026, 9438, 147484, 81159, 126655, 104114]
+  - top_tokens str = ['SaveChangesAsync', 'detectChanges', 'TabIndex', 'UseVisualStyle', 'ExecuteReader']
+  - prob = 0.000000
+  - rank = 33593
+  - output_score = 0.000000
+  - a_max[30] = 17.014168
+
+Feature 54:
+  - top_tokens IDs = [101514, 186853, 252232, 198997, 185544, 214503, 113659, 119666, 149251, 230553]
+  - top_tokens str = ['adaptiveStyles', ' ujednoznacz', '\x12', 'tanleria', 'httphttps']
+  - prob = 0.000000
+  - rank = 32409
+  - output_score = 0.000000
+  - a_max[54] = 5.564038
+
+Feature 95:
+  - top_tokens IDs = [192563, 62514, 68667, 229766, 176152, 212436, 218603, 26141, 128124, 170707]
+  - top_tokens str = [' EconPapers', 'badlogic', 'Джерела', 'Jeografia', 'RTLD']
+  - prob = 0.000000
+  - rank = 33442
+  - output_score = 0.000000
+  - a_max[95] = 0.000000
+
+Feature 120:
+  - top_tokens IDs = [157911, 68479, 94695, 237402, 161063, 109558, 87545, 76184, 230833, 183051]
+  - top_tokens str = ['RegressionTest', 'rungsseite', ' resourceCulture', 'ⓧ', 'arraycopy']
+  - prob = 0.000000
+  - rank = 35465
+  - output_score = 0.000000
+  - a_max[120] = 7.084303
+
+Feature 145:
+  - top_tokens IDs = [174788, 214712, 171407, 166196, 103151, 230553, 216755, 164515, 147655, 218238]
+  - top_tokens str = ['AndEndTag', ' jScrollPane', ' unknownFields', 'MessageTagHelper', 'envol']
+  - prob = 0.000000
+  - rank = 33442
+  - output_score = 0.000000
+  - a_max[145] = 0.000000
+
+Feature 150:
+  - top_tokens IDs = [61329, 55165, 172273, 75180, 80142, 137207, 197480, 98065, 231598, 212549]
+  - top_tokens str = [' initWith', "({'", 'calaureate', ' Whose', 'ɵɵ']
+  - prob = 0.000000
+  - rank = 36371
+  - output_score = 0.000000
+  - a_max[150] = 10.596718
+
+Feature 154:
+  - top_tokens IDs = [52944, 8997, 85350, 174427, 42624, 45275, 179113, 73860, 63651, 13403]
+  - top_tokens str = ['Datuak', ' surround', ' Giles', 'willReturn', ' Collect']
+  - prob = 0.000000
+  - rank = 32905
+  - output_score = 0.000000
+  - a_max[154] = 12.431738
+
+Feature 172:
+  - top_tokens IDs = [122181, 79514, 212549, 112468, 136527, 84694, 138284, 121159, 89372, 188478]
+  - top_tokens str = [' initComponents', 'setVerticalGroup', ' nahilalakip', ' GenerationType', ' <<<<<<<<<<<<<<']
+  - prob = 0.000000
+  - rank = 33442
+  - output_score = 0.000000
+  - a_max[172] = 0.000000
+
+Feature 185:
+  - top_tokens IDs = [119572, 179288, 13541, 185544, 69374, 230179, 76236, 216856, 149752, 65896]
+  - top_tokens str = ['__*/', 'EROUS', ' dangerous', 'httphttps', 'interesting']
+  - prob = 0.000000
+  - rank = 33442
+  - output_score = 0.000000
+  - a_max[185] = 0.000000
+
+Feature 187:
+  - top_tokens IDs = [211465, 63492, 195329, 211288, 100760, 140057, 50938, 184239, 76839, 133109]
+  - top_tokens str = ['GIVEREF', 'ApiModelProperty', ' ivelany', '\ufeff/**', 'ollectionView']
+  - prob = 0.000000
+  - rank = 33442
+  - output_score = 0.000000
+  - a_max[187] = 0.000000
+
+Feature 210:
+  - top_tokens IDs = [172208, 86228, 127373, 230425, 230553, 230179, 199423, 36930, 229098, 110266]
+  - top_tokens str = [' useAppContext', ' protoimpl', ' ligiloj', 'IUrlHelper', 'WithIOException']
+  - prob = 0.000000
+  - rank = 38336
+  - output_score = 0.000000
+  - a_max[210] = 9.895962
+
+Feature 320:
+  - top_tokens IDs = [209949, 221990, 98167, 12078, 222423, 190193, 120316, 196709, 13669, 233140]
+  - top_tokens str = [' THOUS', '<?,', ' quæ', ' thousand', ' argint']
+  - prob = 0.000000
+  - rank = 267
+  - output_score = 0.000000
+  - a_max[320] = 42.678303
+
+Feature 338:
+  - top_tokens IDs = [223046, 24237, 67521, 176104, 46589, 49969, 166362, 2247, 106434, 9009]
+  - top_tokens str = [' complètes', ' completo', ' complète', ' volledige', ' FULL']
+  - prob = 0.000000
+  - rank = 27239
+  - output_score = 0.000000
+  - a_max[338] = 28.944645
+
+Feature 351:
+  - top_tokens IDs = [38851, 38860, 221806, 144047, 112602, 54442, 77085, 216753, 155274, 26357]
+  - top_tokens str = [' werde', 'posted', ' خواهیم', 'DBNull', ' rekening']
+  - prob = 0.000000
+  - rank = 29015
+  - output_score = 0.000000
+  - a_max[351] = 21.463587
+
+Feature 394:
+  - top_tokens IDs = [165842, 218551, 232462, 212437, 193025, 186977, 211753, 222719, 209059, 165567]
+  - top_tokens str = ['CppCodeGen', ' extérieures', ' íntimo', ' vandens', ' território']
+  - prob = 0.000000
+  - rank = 32105
+  - output_score = 0.000000
+  - a_max[394] = 12.104763
+
+Feature 425:
+  - top_tokens IDs = [230179, 150604, 86434, 205471, 106237, 79514, 201517, 82604, 81159, 186026]
+  - top_tokens str = ['SourceChecksum', 'ChildScrollView', ' AssemblyCulture', 'DrawerToggle', 'WireFormatLite']
+  - prob = 0.000000
+  - rank = 35503
+  - output_score = 0.000000
+  - a_max[425] = 11.863259
+
+Feature 434:
+  - top_tokens IDs = [189764, 13594, 982, 16988, 5221, 65486, 13686, 1266, 112280, 91589]
+  - top_tokens str = ['참고', ' Rat', 'les', ' Fle', ' Les']
+  - prob = 0.000000
+  - rank = 31392
+  - output_score = 0.000000
+  - a_max[434] = 13.860563
+
+Feature 440:
+  - top_tokens IDs = [144411, 156419, 43280, 151633, 82878, 4250, 172278, 96580, 173655, 203219]
+  - top_tokens str = ['ografija', ' defaultstate', 'Viki', ' explicación', 'respuesta']
+  - prob = 0.000000
+  - rank = 29142
+  - output_score = 0.000000
+  - a_max[440] = 25.691782
+
+Feature 461:
+  - top_tokens IDs = [158059, 41436, 215685, 133980, 83462, 178150, 71671, 82135, 231962, 25543]
+  - top_tokens str = [' legislator', 'KommentareTeilen', ' congressman', ' Congressman', ' legislators']
+  - prob = 0.000000
+  - rank = 32961
+  - output_score = 0.000000
+  - a_max[461] = 5.538045
+
+Feature 525:
+  - top_tokens IDs = [58715, 214684, 169039, 234323, 214503, 213525, 227495, 93909, 92065, 187660]
+  - top_tokens str = ['ſelf', ' faſt', ' ſche', ' myſelf', 'دانشنامهٔ']
+  - prob = 0.000000
+  - rank = 29601
+  - output_score = 0.000000
+  - a_max[525] = 9.268749
+
+Feature 597:
+  - top_tokens IDs = [40561, 191376, 152159, 109371, 111611, 214854, 216550, 160462, 199620, 43639]
+  - top_tokens str = [':✨', 'SharedCtor', 'donation', ' يتيمه', ' noDo']
+  - prob = 0.000000
+  - rank = 33442
+  - output_score = 0.000000
+  - a_max[597] = 0.000000
+
+Feature 645:
+  - top_tokens IDs = [24843, 61266, 5893, 7950, 65535, 22298, 125269, 122909, 21176, 129201]
+  - top_tokens str = ['Club', ' CLUB', ' club', ' Club', ' Clubs']
+  - prob = 0.000000
+  - rank = 33442
+  - output_score = 0.000000
+  - a_max[645] = 0.000000
+
+Feature 699:
+  - top_tokens IDs = [69737, 12661, 101540, 29130, 175380, 192612, 148148, 205144, 24964, 130110]
+  - top_tokens str = ['Programme', ' programme', 'programme', ' Programme', ' PROGRAMME']
+  - prob = 0.000000
+  - rank = 25488
+  - output_score = 0.000000
+  - a_max[699] = 10.754188
+
+Feature 719:
+  - top_tokens IDs = [186931, 41385, 133102, 234323, 183157, 32163, 46113, 54961, 214084, 17772]
+  - top_tokens str = [' disambiguazione', 'IBOutlet', ' photoshoot', ' myſelf', '+#+#']
+  - prob = 0.000000
+  - rank = 29329
+  - output_score = 0.000000
+  - a_max[719] = 11.560950
+
+Feature 731:
+  - top_tokens IDs = [157911, 98266, 220682, 17573, 145609, 85316, 229098, 103243, 225222, 98220]
+  - top_tokens str = ['RegressionTest', 'CppMethod', 'ItemBackground', 'cellation', 'RetentionPolicy']
+  - prob = 0.000000
+  - rank = 32614
+  - output_score = 0.000000
+  - a_max[731] = 6.688683
+
+Feature 753:
+  - top_tokens IDs = [222423, 168282, 126513, 191270, 133012, 21680, 172436, 233807, 198165, 96651]
+  - top_tokens str = [' argint', ' daarvan', ' piele', ' hexadecimal', 'adecimal']
+  - prob = 0.000000
+  - rank = 37167
+  - output_score = 0.000000
+  - a_max[753] = 7.729482
+
+Feature 798:
+  - top_tokens IDs = [125990, 119569, 186931, 148118, 161479, 13406, 150914, 230554, 22531, 116063]
+  - top_tokens str = ['BufferException', 'ViewFeatures', ' disambiguazione', ' jadx', ' VizieR']
+  - prob = 0.000000
+  - rank = 32160
+  - output_score = 0.000000
+  - a_max[798] = 5.815624
+
+Feature 804:
+  - top_tokens IDs = [133354, 4192, 133033, 146544, 87145, 172909, 89849, 30430, 131895, 15985]
+  - top_tokens str = [' añadió', ' added', ' añade', 'وأضاف', ' agregó']
+  - prob = 0.000000
+  - rank = 33442
+  - output_score = 0.000000
+  - a_max[804] = 0.000000
+
+Feature 806:
+  - top_tokens IDs = [192923, 80583, 228911, 69543, 90052, 145334, 159722, 211077, 210106, 116192]
+  - top_tokens str = [' weshalb', ' organizaciones', 'pectiva', ' ressources', ' einander']
+  - prob = 0.000000
+  - rank = 34724
+  - output_score = 0.000000
+  - a_max[806] = 8.171324
