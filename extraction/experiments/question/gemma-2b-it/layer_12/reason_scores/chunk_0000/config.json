@@ -1,0 +1,37 @@
+{
+  "script": "compute_score.py",
+  "timestamp": "2025-12-18T13:03:53",
+  "command": "compute_score.py --model_path gemma-2b-it --sae_path gemma-2b-it-res-jb --sae_id blocks.12.hook_resid_post --dataset_path snork-maiden/gemma-2b-it-lmsys-subset-tokenized-v2 --tokens_str_path /home/petrova_am/SAE-Reasoning/extraction/question_vocab.json --exp_root experiments --vocab_name question --n_samples 4096 --column_name tokens --minibatch_size_tokens 16 --num_chunks 20 --chunk_num 0",
+  "args": {
+    "model_path": "gemma-2b-it",
+    "sae_path": "gemma-2b-it-res-jb",
+    "dataset_path": "snork-maiden/gemma-2b-it-lmsys-subset-tokenized-v2",
+    "tokens_str_path": "/home/petrova_am/SAE-Reasoning/extraction/question_vocab.json",
+    "exp_root": "experiments",
+    "vocab_name": "question",
+    "sae_id": "blocks.12.hook_resid_post",
+    "expand_range": null,
+    "ignore_tokens": null,
+    "n_samples": 4096,
+    "alpha": 1.0,
+    "column_name": "tokens",
+    "minibatch_size_features": 256,
+    "minibatch_size_tokens": 16,
+    "num_chunks": 20,
+    "chunk_num": 0
+  },
+  "derived": {
+    "hook_name": "blocks.12.hook_resid_post",
+    "layer": 12,
+    "num_features_total": 16384,
+    "num_features_in_chunk": 820,
+    "chunk_num": 0,
+    "num_chunks": 20,
+    "tokens_str_count": 11,
+    "output_path": "experiments/question/gemma-2b-it/layer_12/reason_scores/chunk_0000/feature_scores.pt"
+  },
+  "environment": {
+    "device": "cuda",
+    "torch_version": "2.6.0+cu124"
+  }
+}
