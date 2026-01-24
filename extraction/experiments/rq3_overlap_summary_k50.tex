@@ -1,0 +1,15 @@
+\begin{table}[t]
+\centering
+\small
+\begin{tabular}{llrrrrr}
+\toprule
+Model & (L,chunk) & $|F_Q|$ & $|F_C|$ & $|F_Q\cap F_C|$ & Jaccard \\
+\midrule
+gemma-2-9b-it & (20,0000) & 12 & 8 & 6 & 0.429 \\
+gemma-2b-it & (12,0000) & 10 & 13 & 3 & 0.150 \\
+gemma-2b-it & (12,0001) & 31 & 31 & 26 & 0.722 \\
+\bottomrule
+\end{tabular}
+\caption{RQ3: overlap of \textbf{K=50} ReasonScore-selected candidates after filtering by OutputScore $>0$. $F_Q$ and $F_C$ are the surviving feature sets for question vs.\ clarification vocabularies.}
+\label{tab:rq3-overlap-summary}
+\end{table}

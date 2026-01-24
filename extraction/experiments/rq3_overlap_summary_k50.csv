@@ -1,0 +1,4 @@
+model,layer,chunk,K,min_output_score,Q_pos,C_pos,Both,Jaccard
+gemma-2-9b-it,20,0000,50,0.0,12,8,6,0.42857142857142855
+gemma-2b-it,12,0000,50,0.0,10,13,3,0.15
+gemma-2b-it,12,0001,50,0.0,31,31,26,0.7222222222222222

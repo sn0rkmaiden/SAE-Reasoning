@@ -1,0 +1,10 @@
+model,layer,chunk,category,top_features
+gemma-2-9b-it,20,0000,Q-only,232 (0.117) [ is | 帖最后由 |  represents |  defaultstate |  verhe]; 229 (0.00115) [ global |  worldwide |  globally |  weltweit | global]; 480 (0.000307) [ similar |  other |  same |  another | same]
+gemma-2-9b-it,20,0000,Overlap,527 (Q 0.00614; C 0.00614) [  |  Ready |  Private |  Practice |  John]; 488 (Q 0.000377; C 0.000377) [\n\n | \n\n\n | \n |  Two |  An]; 748 (Q 4.49e-05; C 4.49e-05) [I | 1 | \n | \n\n | Is]
+gemma-2-9b-it,20,0000,C-only,218 (0.00059) [\n\n | 볍 | WebServlet | werb | DeltaTime]; 250 (5.45e-08) [ garage |  Garage | Garage |  garages |  garagem]
+gemma-2b-it,12,0000,Q-only,"103 (0.979) [<bos> |  fta |  ftu |  effe |  desir]; 231 (0.361) [ you |  your |  please |  youre | your]; 320 (0.0358) [” | "" | "": | </em> | "",]"
+gemma-2b-it,12,0000,Overlap,210 (Q 1.38e-05; C 1.38e-05) [ yourself | Билгалдахарш |  your |  personally | สึก]; 132 (Q 1.57e-07; C 1.57e-07) [ indestru |  impra |  intersper |  unspeak |  shenan]; 428 (Q 9.81e-08; C 9.81e-08) [ sophistic |  shenan |  reluct |  snoopy |  unspeak]
+gemma-2b-it,12,0000,C-only,439 (0.0201) [However | Therefore | But | Yet |  antik]; 802 (0.00108) [ Minnesota | Minnesota |  Minneapolis |  MINNESOTA |  Minn]; 285 (0.000151) [ immigration | Immigration |  Immigration | immigration |  immigrants]
+gemma-2b-it,12,0001,Q-only,"538 (0.00627) [ wasn |  seemed |  was |  resulted |  reflects]; 336 (0.000239) [ “ |  "" | :"" |  « | "":]; 162 (5.8e-06) [ protection |  security |  privacy |  protections | protection]"
+gemma-2b-it,12,0001,Overlap,505 (Q 1; C 1) [<bos> | GEBURTSDATUM | expandindo |  betweenstory | Autoritní]; 557 (Q 0.242; C 0.242) [ it |  there |  they |  if |  we]; 375 (Q 0.000862; C 0.000862) [ none |  only |  most |  ones |  one]
+gemma-2b-it,12,0001,C-only,492 (1) [<bos> | GEBURTSDATUM | expandindo |  betweenstory | Autoritní]; 432 (0.974) [ physical | physical | Physical |  Physical |  PHYSICAL]; 811 (0.000757) [ person | <bos> |  embodiment |  talento |  hero]
