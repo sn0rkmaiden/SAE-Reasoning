@@ -1,13 +1,22 @@
 {
   "script": "compute_score.py",
+<<<<<<< HEAD
   "timestamp": "2026-01-28T22:21:39",
   "command": "compute_score.py --model_path gemma-2-9b-it --sae_path gemma-scope-9b-it-res-canonical --sae_id layer_20/width_16k/canonical --dataset_path snork-maiden/gemma-2-9b-it-lmsys-subset-tokenized-v2 --tokens_str_path /home/petrova_am/SAE-Reasoning/extraction/combined_vocab.json --exp_root experiments --vocab_name combined --n_samples 4096 --column_name tokens --minibatch_size_tokens 16 --num_chunks 20 --chunk_num 0",
+=======
+  "timestamp": "2026-01-29T00:59:42",
+  "command": "compute_score.py --model_path gemma-2-9b-it --sae_path gemma-scope-9b-it-res-canonical --sae_id layer_20/width_16k/canonical --dataset_path snork-maiden/gemma-2-9b-it-lmsys-subset-tokenized-v2 --tokens_str_path /home/petrova_am/SAE-Reasoning/extraction/combined_vocab.json --exp_root experiments_combined_vocab --vocab_name combined --n_samples 4096 --column_name tokens --minibatch_size_tokens 16 --num_chunks 20 --chunk_num 0",
+>>>>>>> 7ac2510a9dd4bce0e0357b65cd8d31494b17ddba
   "args": {
     "model_path": "gemma-2-9b-it",
     "sae_path": "gemma-scope-9b-it-res-canonical",
     "dataset_path": "snork-maiden/gemma-2-9b-it-lmsys-subset-tokenized-v2",
     "tokens_str_path": "/home/petrova_am/SAE-Reasoning/extraction/combined_vocab.json",
+<<<<<<< HEAD
     "exp_root": "experiments",
+=======
+    "exp_root": "experiments_combined_vocab",
+>>>>>>> 7ac2510a9dd4bce0e0357b65cd8d31494b17ddba
     "vocab_name": "combined",
     "sae_id": "layer_20/width_16k/canonical",
     "expand_range": null,
@@ -28,10 +37,18 @@
     "chunk_num": 0,
     "num_chunks": 20,
     "tokens_str_count": 31,
+<<<<<<< HEAD
     "output_path": "experiments/combined/gemma-2-9b-it/layer_20/reason_scores/chunk_0000/feature_scores.pt"
   },
   "environment": {
     "device": "cuda",
     "torch_version": "2.4.1+cu121"
+=======
+    "output_path": "experiments_combined_vocab/combined/gemma-2-9b-it/layer_20/reason_scores/chunk_0000/feature_scores.pt"
+  },
+  "environment": {
+    "device": "cuda",
+    "torch_version": "2.6.0+cu124"
+>>>>>>> 7ac2510a9dd4bce0e0357b65cd8d31494b17ddba
   }
 }
