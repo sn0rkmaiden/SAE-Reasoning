@@ -1,0 +1,42 @@
+cluster,label,keywords,size,mean_output_score,max_output_score,rep_feature_id,rep_output_score,rep_vocabs_present,rep_top_tokens_preview,steering_features
+7,de / and / T,"de, and, T, S, C",3,0.00011204940701524416,0.0002948716506361961,526,0.0002948716506361961,combined,"//,  //, ﻿//, )//, {//","[526, 400, 406]"
+37,we / resulting / colombiana,"we, resulting, colombiana, accept, The, an, a",2,0.005474629074335099,0.009963405430316926,249,0.009963405430316926,combined," a,  an, 
+
+,  The,  resulting","[249, 9]"
+1,uns / helps / help,"uns, helps, help, enables, enable",2,0.001374200785299763,0.0027483498081564903,642,0.0027483498081564903,combined," helps,  help,  enable,  enables,  مما","[642, 134]"
+9,almost / Fall / Almost,"almost, Fall, Almost, nearly, fell, falling, fall",2,0.00021631515328772368,0.0004320654617622495,227,0.0004320654617622495,combined," almost, Almost, almost,  Almost,  nearly","[227, 168]"
+17,case / Examination / Case,"case, Examination, Case, examine, examination, cases, Examine",2,0.00020704219746403398,0.0003832872211933136,198,0.0003832872211933136,combined," case, Case,  Case, case,  cases","[198, 571]"
+5,world / wishlist / verwijspagina,"world, wishlist, verwijspagina, planète, mondial, global, dünya, bucket",2,7.03438528580591e-05,0.0001400504820048809,597,0.0001400504820048809,combined," world,  planète,  global,  dünya,  mondial","[597, 547]"
+18,sizeof / spooky / horror,"sizeof, spooky, horror, haunted, creepy, XmlAccessorType, Horror, Endian",2,6.384164793416859e-05,0.00012741442769765855,417,0.00012741442769765855,combined," horror,  creepy,  spooky,  haunted,  Horror","[417, 746]"
+0,bubble / spells / spell,"bubble, spells, spell, mesmer, hypnosis, hypno, bubbles, Bubbles",2,1.5074746450409293e-05,2.9874211410060525e-05,785,2.9874211410060525e-05,combined," hypnosis,  hypno,  spell,  spells,  mesmer","[785, 509]"
+4,facts / Versatile / Facts,"facts, Versatile, Facts, versatility, versatile, multipurpose, factual",2,4.802578361704945e-06,8.718141820281744e-06,0,8.718141820281744e-06,combined," facts,  Facts, facts, Facts,  factual","[0, 322]"
+10,slightly / lâu / longtemps,"slightly, lâu, longtemps, little, beetje, awhile, bit",2,4.382527666166424e-06,8.707155240699649e-06,512,8.707155240699649e-06,combined," bit,  little,  beetje, slightly,  کمی","[512, 125]"
+16,import / derive / Came,"import, derive, Came, an, a",2,9.852208895608783e-07,1.919638831168413e-06,622,1.919638831168413e-06,combined,"import,  a, Came, derive,  an","[622, 549]"
+6,Three / pronoun / pronom,"Three, pronoun, pronom, girasol, derechos, One, Four, Five",2,4.563987022265792e-07,8.60891304910183e-07,92,8.60891304910183e-07,combined," pronoun,  pronom, Facades,  derechos,  girasol","[92, 131]"
+8,generation / body / Generation,"generation, body, Generation, Body, generations, BODY",2,6.819714326411486e-07,7.990980520844459e-07,643,7.990980520844459e-07,combined," body,  Body, Body, body,  BODY","[643, 251]"
+3,toy / Toy / Bead,"toy, Toy, Bead, toys, beads, bead, Beads",2,3.9066094905138015e-07,4.4933147728443147e-07,649,4.4933147728443147e-07,combined," toy,  toys, Toy, toy,  Toy","[649, 795]"
+2,filepath / httphttps / filePath,"filepath, httphttps, filePath, VYMaps, FilePath, AssemblyCompany, <h5>, <h4>",2,1.375429565086961e-07,2.2428296506404877e-07,636,2.2428296506404877e-07,combined,"filepath,  filepath, httphttps, FilePath,  filePath","[636, 550]"
+35,love / liefde / braccia,"love, liefde, braccia, HomeAsUpEnabled",1,0.02540518909692764,0.02540518909692764,81,0.02540518909692764,combined," love,  liefde, love, HomeAsUpEnabled,  braccia",[81]
+27,cold / Cold / winter,"cold, Cold, winter",1,0.0009629514440894127,0.0009629514440894127,165,0.0009629514440894127,combined," cold,  Cold, Cold, cold,  winter",[165]
+25,texto / textes / texte,"texto, textes, texte, text, Text",1,3.714783815667033e-05,3.714783815667033e-05,452,3.714783815667033e-05,combined," text,  texte,  textes,  texto,  Text",[452]
+26,eventType / event / attended,"eventType, event, attended, attend, Attend",1,1.3937657931819557e-05,1.3937657931819557e-05,151,1.3937657931819557e-05,combined," event,  attended,  eventType,  attend,  Attend",[151]
+36,contatto / contact / Contato,"contatto, contact, Contato",1,3.634772263467312e-06,3.634772263467312e-06,199,3.634772263467312e-06,combined," contact, 連絡, ьаж,  contatto, Contato",[199]
+24,requested / request / requesting,"requested, request, requesting",1,3.238493809476495e-06,3.238493809476495e-06,591,3.238493809476495e-06,combined," requested,  requesting,  request, requested, request",[591]
+33,polí / batting / batsman,"polí, batting, batsman, bats",1,2.6897834613919256e-06,2.6897834613919256e-06,482,2.6897834613919256e-06,combined," batting,  bats,  batsman, ญิง,  polí",[482]
+34,Celsius / ligiloj / celsius,"Celsius, ligiloj, celsius, Fahrenheit",1,2.569783478975296e-06,2.569783478975296e-06,108,2.569783478975296e-06,combined," Fahrenheit,  Celsius, Celsius,  ligiloj,  celsius",[108]
+29,,,1,2.275156555697322e-06,2.275156555697322e-06,491,2.275156555697322e-06,combined," $('.,  $("".,  $(""#,  $('#, $('.",[491]
+28,Congratulations / congratulated / congratulate,"Congratulations, congratulated, congratulate, congrat",1,2.1313922479748726e-06,2.1313922479748726e-06,215,2.1313922479748726e-06,combined,"Congratulations,  congratulated,  congratulate,  congrat,  Congratulations",[215]
+32,bridges / bridge / Bridge,"bridges, bridge, Bridge, BRIDGE",1,1.209653215482831e-06,1.209653215482831e-06,225,1.209653215482831e-06,combined," bridge,  bridges,  Bridge,  BRIDGE, bridges",[225]
+22,dropna / calls / call,"dropna, calls, call, atzung, BirthDate",1,1.152055338025093e-06,1.152055338025093e-06,538,1.152055338025093e-06,combined," call, BirthDate, dropna,  calls, atzung",[538]
+23,endpush / constriction / const,"endpush, constriction, const, WillAppear",1,8.577690459787846e-07,8.577690459787846e-07,323,8.577690459787846e-07,combined," const, WillAppear, endpush, $_[',  constriction",[323]
+21,Uganda / Ugandan / Kampala,"Uganda, Ugandan, Kampala, AndEndTag",1,5.078909453004599e-07,5.078909453004599e-07,394,5.078909453004599e-07,combined," Uganda, Uganda,  Ugandan,  Kampala, AndEndTag",[394]
+31,sti / smokes / sikan,"sti, smokes, sikan, boss, bit",1,3.9321882650256153e-07,3.9321882650256153e-07,804,3.9321882650256153e-07,combined," boss,  sti,  smokes, sikan,  bit",[804]
+15,pool / Pool / POOL,"pool, Pool, POOL",1,2.1544471383094787e-07,2.1544471383094787e-07,561,2.1544471383094787e-07,combined," pool,  Pool, pool, Pool,  POOL",[561]
+12,army / armies / Army,"army, armies, Army, Armies",1,1.6139354556798936e-07,1.6139354556798936e-07,354,1.6139354556798936e-07,combined," army,  armies,  Armies,  Army, army",[354]
+30,RegressionTest / ProtoMessage / ConstraintMaker,"RegressionTest, ProtoMessage, ConstraintMaker",1,1.609290484338999e-07,1.609290484338999e-07,421,1.609290484338999e-07,combined,"ConstraintMaker, RegressionTest,  ProtoMessage, ⓧ, |()",[421]
+19,blog / Blog / expandindo,"blog, Blog, expandindo",1,1.054150052368641e-07,1.054150052368641e-07,23,1.054150052368641e-07,combined,"Blog, blog,  Blog,  blog, expandindo",[23]
+38,,,1,1.054150052368641e-07,1.054150052368641e-07,398,1.054150052368641e-07,combined,"://, ::, !(:, (::, ()->",[398]
+11,prepareStatement / ouverte / opened,"prepareStatement, ouverte, opened, open, fopen",1,1.0490790009498597e-07,1.0490790009498597e-07,754,1.0490790009498597e-07,combined," fopen,  opened, prepareStatement,  ouverte,  open",[754]
+13,sati / bootstrapcdn / Sati,"sati, bootstrapcdn, Sati, SNL, GOTREF",1,1.0462850332260131e-07,1.0462850332260131e-07,529,1.0462850332260131e-07,combined," SNL, bootstrapcdn,  sati,  Sati, GOTREF",[529]
+14,,,1,5.080294795334339e-08,5.080294795334339e-08,432,5.080294795334339e-08,combined,,[432]
+20,disposing / ISupport / IActionResult,"disposing, ISupport, IActionResult, Cataloging",1,5.080294795334339e-08,5.080294795334339e-08,695,5.080294795334339e-08,combined,"ISupport,  Cataloging, IActionResult, disposing, 울",[695]

@@ -1,0 +1,56 @@
+feature_id,output_score_agg,best_output_score,best_vocab,vocabs_present,per_vocab_scores_json,top_tokens_str,cluster
+785,2.9874211410060525e-05,2.9874211410060525e-05,combined,combined,"{""combined"": 2.9874211410060525e-05}","[' hypnosis', ' hypno', ' spell', ' spells', ' mesmer']",0
+509,2.752814907580614e-07,2.752814907580614e-07,combined,combined,"{""combined"": 2.752814907580614e-07}","[' bubbles', ' bubble', ' Bubble', 'bubble', ' Bubbles']",0
+642,0.0027483498081564903,0.0027483498081564903,combined,combined,"{""combined"": 0.0027483498081564903}","[' helps', ' help', ' enable', ' enables', ' مما']",1
+134,5.1762443035840984e-08,5.1762443035840984e-08,combined,combined,"{""combined"": 5.1762443035840984e-08}","[' пере', ' uns', ' ανα', ' المت', ' Пере']",1
+636,2.2428296506404877e-07,2.2428296506404877e-07,combined,combined,"{""combined"": 2.2428296506404877e-07}","['filepath', ' filepath', 'httphttps', 'FilePath', ' filePath']",2
+550,5.080294795334339e-08,5.080294795334339e-08,combined,combined,"{""combined"": 5.080294795334339e-08}","['<h4>', '<h5>', '<h3>', ' AssemblyCompany', 'VYMaps']",2
+649,4.4933147728443147e-07,4.4933147728443147e-07,combined,combined,"{""combined"": 4.4933147728443147e-07}","[' toy', ' toys', 'Toy', 'toy', ' Toy']",3
+795,3.3199042081832884e-07,3.3199042081832884e-07,combined,combined,"{""combined"": 3.3199042081832884e-07}","[' beads', ' Beads', 'Bead', ' bead', ' Bead']",3
+0,8.718141820281744e-06,8.718141820281744e-06,combined,combined,"{""combined"": 8.718141820281744e-06}","[' facts', ' Facts', 'facts', 'Facts', ' factual']",4
+322,8.870149031281471e-07,8.870149031281471e-07,combined,combined,"{""combined"": 8.870149031281471e-07}","[' Versatile', ' versatile', 'Versatile', ' multipurpose', ' versatility']",4
+597,0.0001400504820048809,0.0001400504820048809,combined,combined,"{""combined"": 0.0001400504820048809}","[' world', ' planète', ' global', ' dünya', ' mondial']",5
+547,6.372237112373114e-07,6.372237112373114e-07,combined,combined,"{""combined"": 6.372237112373114e-07}","[' bucket', ' Bucket', 'verwijspagina', ' wishlist', 'Jereo']",5
+92,8.60891304910183e-07,8.60891304910183e-07,combined,combined,"{""combined"": 8.60891304910183e-07}","[' pronoun', ' pronom', 'Facades', ' derechos', ' girasol']",6
+131,5.1906099542975426e-08,5.1906099542975426e-08,combined,combined,"{""combined"": 5.1906099542975426e-08}","['Five', 'Four', 'Three', ' Three', ' One']",6
+526,0.0002948716506361961,0.0002948716506361961,combined,combined,"{""combined"": 0.0002948716506361961}","['//', ' //', '\ufeff//', ')//', '{//']",7
+400,2.3471731692552568e-05,2.3471731692552568e-05,combined,combined,"{""combined"": 2.3471731692552568e-05}","[' &', ' ""', ' ', 'de', 'C']",7
+406,1.7804838716983794e-05,1.7804838716983794e-05,combined,combined,"{""combined"": 1.7804838716983794e-05}","['.', ' ', ' T', ' and', ' S']",7
+643,7.990980520844459e-07,7.990980520844459e-07,combined,combined,"{""combined"": 7.990980520844459e-07}","[' body', ' Body', 'Body', 'body', ' BODY']",8
+251,5.648448131978511e-07,5.648448131978511e-07,combined,combined,"{""combined"": 5.648448131978511e-07}","[' generation', 'generation', ' Generation', ' generations', 'Generation']",8
+227,0.0004320654617622495,0.0004320654617622495,combined,combined,"{""combined"": 0.0004320654617622495}","[' almost', 'Almost', 'almost', ' Almost', ' nearly']",9
+168,5.648448131978511e-07,5.648448131978511e-07,combined,combined,"{""combined"": 5.648448131978511e-07}","[' fall', ' falling', ' Fall', ' fell', 'Fall']",9
+512,8.707155240699649e-06,8.707155240699649e-06,combined,combined,"{""combined"": 8.707155240699649e-06}","[' bit', ' little', ' beetje', 'slightly', ' کمی']",10
+125,5.7900091633200646e-08,5.7900091633200646e-08,combined,combined,"{""combined"": 5.7900091633200646e-08}","[' lâu', ' longtemps', '一段时间', ' awhile', '很久']",10
+754,1.0490790009498597e-07,1.0490790009498597e-07,combined,combined,"{""combined"": 1.0490790009498597e-07}","[' fopen', ' opened', 'prepareStatement', ' ouverte', ' open']",11
+354,1.6139354556798936e-07,1.6139354556798936e-07,combined,combined,"{""combined"": 1.6139354556798936e-07}","[' army', ' armies', ' Armies', ' Army', 'army']",12
+529,1.0462850332260131e-07,1.0462850332260131e-07,combined,combined,"{""combined"": 1.0462850332260131e-07}","[' SNL', 'bootstrapcdn', ' sati', ' Sati', 'GOTREF']",13
+432,5.080294795334339e-08,5.080294795334339e-08,combined,combined,"{""combined"": 5.080294795334339e-08}",[],14
+561,2.1544471383094787e-07,2.1544471383094787e-07,combined,combined,"{""combined"": 2.1544471383094787e-07}","[' pool', ' Pool', 'pool', 'Pool', ' POOL']",15
+622,1.919638831168413e-06,1.919638831168413e-06,combined,combined,"{""combined"": 1.919638831168413e-06}","['import', ' a', 'Came', 'derive', ' an']",16
+549,5.080294795334339e-08,5.080294795334339e-08,combined,combined,"{""combined"": 5.080294795334339e-08}","['吹', '@', '\ufeff', '.', '对']",16
+198,0.0003832872211933136,0.0003832872211933136,combined,combined,"{""combined"": 0.0003832872211933136}","[' case', 'Case', ' Case', 'case', ' cases']",17
+571,3.079717373475432e-05,3.079717373475432e-05,combined,combined,"{""combined"": 3.079717373475432e-05}","[' examination', ' Examination', ' examine', ' Examine', 'Examination']",17
+417,0.00012741442769765855,0.00012741442769765855,combined,combined,"{""combined"": 0.00012741442769765855}","[' horror', ' creepy', ' spooky', ' haunted', ' Horror']",18
+746,2.6886817067861556e-07,2.6886817067861556e-07,combined,combined,"{""combined"": 2.6886817067861556e-07}","['sizeof', ' sizeof', 'ENDIAN', 'Endian', 'XmlAccessorType']",18
+23,1.054150052368641e-07,1.054150052368641e-07,combined,combined,"{""combined"": 1.054150052368641e-07}","['Blog', 'blog', ' Blog', ' blog', 'expandindo']",19
+695,5.080294795334339e-08,5.080294795334339e-08,combined,combined,"{""combined"": 5.080294795334339e-08}","['ISupport', ' Cataloging', 'IActionResult', 'disposing', '울']",20
+394,5.078909453004599e-07,5.078909453004599e-07,combined,combined,"{""combined"": 5.078909453004599e-07}","[' Uganda', 'Uganda', ' Ugandan', ' Kampala', 'AndEndTag']",21
+538,1.152055338025093e-06,1.152055338025093e-06,combined,combined,"{""combined"": 1.152055338025093e-06}","[' call', 'BirthDate', 'dropna', ' calls', 'atzung']",22
+323,8.577690459787846e-07,8.577690459787846e-07,combined,combined,"{""combined"": 8.577690459787846e-07}","[' const', 'WillAppear', 'endpush', ""$_['"", ' constriction']",23
+591,3.238493809476495e-06,3.238493809476495e-06,combined,combined,"{""combined"": 3.238493809476495e-06}","[' requested', ' requesting', ' request', 'requested', 'request']",24
+452,3.714783815667033e-05,3.714783815667033e-05,combined,combined,"{""combined"": 3.714783815667033e-05}","[' text', ' texte', ' textes', ' texto', ' Text']",25
+151,1.3937657931819557e-05,1.3937657931819557e-05,combined,combined,"{""combined"": 1.3937657931819557e-05}","[' event', ' attended', ' eventType', ' attend', ' Attend']",26
+165,0.0009629514440894127,0.0009629514440894127,combined,combined,"{""combined"": 0.0009629514440894127}","[' cold', ' Cold', 'Cold', 'cold', ' winter']",27
+215,2.1313922479748726e-06,2.1313922479748726e-06,combined,combined,"{""combined"": 2.1313922479748726e-06}","['Congratulations', ' congratulated', ' congratulate', ' congrat', ' Congratulations']",28
+491,2.275156555697322e-06,2.275156555697322e-06,combined,combined,"{""combined"": 2.275156555697322e-06}","["" $('."", ' $("".', ' $(""#', "" $('#"", ""$('.""]",29
+421,1.609290484338999e-07,1.609290484338999e-07,combined,combined,"{""combined"": 1.609290484338999e-07}","['ConstraintMaker', 'RegressionTest', ' ProtoMessage', 'ⓧ', '|()']",30
+804,3.9321882650256153e-07,3.9321882650256153e-07,combined,combined,"{""combined"": 3.9321882650256153e-07}","[' boss', ' sti', ' smokes', 'sikan', ' bit']",31
+225,1.209653215482831e-06,1.209653215482831e-06,combined,combined,"{""combined"": 1.209653215482831e-06}","[' bridge', ' bridges', ' Bridge', ' BRIDGE', 'bridges']",32
+482,2.6897834613919256e-06,2.6897834613919256e-06,combined,combined,"{""combined"": 2.6897834613919256e-06}","[' batting', ' bats', ' batsman', 'ญิง', ' polí']",33
+108,2.569783478975296e-06,2.569783478975296e-06,combined,combined,"{""combined"": 2.569783478975296e-06}","[' Fahrenheit', ' Celsius', 'Celsius', ' ligiloj', ' celsius']",34
+81,0.02540518909692764,0.02540518909692764,combined,combined,"{""combined"": 0.02540518909692764}","[' love', ' liefde', 'love', 'HomeAsUpEnabled', ' braccia']",35
+199,3.634772263467312e-06,3.634772263467312e-06,combined,combined,"{""combined"": 3.634772263467312e-06}","[' contact', '連絡', 'ьаж', ' contatto', 'Contato']",36
+249,0.009963405430316926,0.009963405430316926,combined,combined,"{""combined"": 0.009963405430316926}","[' a', ' an', '\n\n', ' The', ' resulting']",37
+9,0.0009858527183532716,0.0009858527183532716,combined,combined,"{""combined"": 0.0009858527183532716}","[' we', '>())', ' colombiana', ' accept', '++)\r']",37
+398,1.054150052368641e-07,1.054150052368641e-07,combined,combined,"{""combined"": 1.054150052368641e-07}","['://', '::', '!(:', '(::', '()->']",38
