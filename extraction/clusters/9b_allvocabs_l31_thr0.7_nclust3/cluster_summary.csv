@@ -1,0 +1,4 @@
+cluster,label,keywords,size,mean_output_score,max_output_score,rep_feature_id,rep_output_score,rep_vocabs_present,rep_top_tokens_preview,steering_features
+1,version / I / we,"version, I, we, Version, you, versions, transfer, they",73,0.0811355692259744,0.9580040702819824,264,0.9580040702819824,"clar_vocab2,combined,question"," I,  we, 私は, 私も, I","[264, 118, 158]"
+0,transaction / tk / tampa,"transaction, tk, tampa, stamp, skin, ord, ongoing, muscle",45,0.12534915518728604,0.9975546970367432,52,0.9975546970367432,"clar_vocab2,combined,question",",, 、,  highly,  yet,  colourful","[52, 467, 119]"
+2,trees / though / sleep,"trees, though, sleep, namely, inspired, dreams, dream, compression",19,0.02448930973618438,0.2358380012512207,488,0.2358380012512207,"clar_vocab2,combined,question"," dozen,  wenige,  hundred,  weeks,  wenigen","[488, 645, 577]"
