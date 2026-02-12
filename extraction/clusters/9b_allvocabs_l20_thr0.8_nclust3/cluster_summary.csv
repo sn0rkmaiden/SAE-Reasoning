@@ -1,4 +1,0 @@
-cluster,label,keywords,size,mean_output_score,max_output_score,rep_feature_id,rep_output_score,rep_vocabs_present,rep_top_tokens_preview,steering_features
-0,wind / waste / simplify,"wind, waste, simplify, now, national, member, goal, both",40,0.028780074400576994,0.9916953449249267,771,0.9916953449249267,"clar_vocab2,combined,question","., ,, ;,  because, ..","[771, 232, 344]"
-2,simple / price / global,"simple, price, global, free, experienced, Price, Experienced, Boring",14,0.00022280655787991623,0.0016523818820714951,711,0.0016523818820714951,"combined,question"," simple,  tiny, simple,  piccoli,  semplici","[711, 229, 565]"
-1,same / Similarly / Above,"same, Similarly, Above, similarly, similar, other, another, above",3,0.0001055201031267643,0.0003071726895868778,480,0.0003071726895868778,"combined,question"," similar,  other,  same,  another, same","[480, 721, 176]"
